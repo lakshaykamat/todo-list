@@ -38,6 +38,7 @@ function styleContainer(){
 function printItemsofScreen(){
 let containerFirstChild = container.firstElementChild
     let divList = document.createElement('div')
+    divList.classList.add("mx-5", "my-2")
     divList.innerHTML = `
     <li class="m-3 py-2  text-xl"> ${listItem[0]} </li> 
     <button id="del" onclick="remove()">

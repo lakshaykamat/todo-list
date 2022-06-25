@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam&display=swap');
 * {
+    font-family: 'Anek Malayalam', sans-serif;
     transition: .5s ease;
     /* border: 1px solid; */
 }
