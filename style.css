@@ -1,0 +1,7 @@
+*{
+    transition: .5s ease;
+    /* border: 1px solid; */
+}
+.cssborder{
+    border: 2px soild red;
+}
