@@ -35,7 +35,7 @@ function printList(){
 }
 //Style the unoreder list container
 function styleContainer(){
-    container.style.border = "4px solid #6b7280"
+    container.style.border = "3px solid #000"
     container.style.borderRadius = "10px"
 }
 //Prints List to HTML
@@ -55,7 +55,7 @@ let containerFirstChild = container.firstElementChild
     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
     </svg>
 </button>
-<hr class="w-full h-[.3rem] bg-[#6b7280]">`
+<hr class="w-full h-[.2rem] bg-[#000] rounded">`
     if(containerFirstChild == null){
         container.appendChild(divList)
     }else{
