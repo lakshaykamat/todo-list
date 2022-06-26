@@ -3,9 +3,9 @@ const inputEl = document.getElementById('input-el');
 const container = document.getElementById('container')
 const h1Task = document.getElementById('Yourtasks-div')
 const errorMsg = document.getElementById('error-msg')
-const del = document.getElementById('del') 
 const done = document.getElementById('done')
 let listItem = []//array for storing list items
+let num = 0
 
 //Adding event listner to start adding items
 btn.addEventListener("click",startOperation)
@@ -25,7 +25,7 @@ function startOperation(){
         })
     }
     else{//otherwise excute
-        listItem.unshift(inputEl.value)//pushing input value to array
+        listItem.push(inputEl.value)//pushing input value to begginng of array
         printList()//calling function
         inputEl.value = ''//Removing the text text from input field
     }
@@ -41,38 +41,71 @@ function styleContainer(){
     container.style.border = "3px solid #000"//adding border to container
     container.style.borderRadius = "10px"//adding border radius to container
 }
-//Prints List to HTML
+
 function printListItemsonScreen(){
-let containerFirstChild = container.firstElementChild //grabing the container(ul tag) first child
-    let divList = document.createElement('div')//creating a div tag
-    divList.classList.add("sm:mx-8", "sm:my-4","my-2","mx-5")//adding a class to  created div
-    //adding li tag and buttons to created div tag
-    divList.innerHTML = `
-    <li class="m-3 py-2  text-xl break-normal"> ${listItem[0]} </li> 
-    <button id="del" class="mx-2">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 bg-red-300 p-2" title="Delete" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    let containerFirstChild = container.firstElementChild //grabing the container(ul tag) first child
+
+    let createdDiv = document.createElement('div')//creating a div tag
+    createdDiv.classList.add("sm:mx-8", "sm:my-4","my-2","mx-5")//adding a class to  created div
+
+    let List = document.createElement('li')//Creating a li tag
+    List.classList.add("m-3", "py-2",  "text-xl", "break-normal")//adding class to li tag
+    List.textContent = listItem[num]//giving array[0]
+    createdDiv.appendChild(List)//appending li tag to newly created div tag above
+
+
+    let createDelButton = document.createElement('button')
+    createDelButton.classList.add("del", "mx-2")
+    createDelButton.setAttribute("id","del")
+    createDelButton.onclick = function(e){    
+        const item = e.target
+        console.log(item)
+        if(item.classList[0] == "del" && listItem.length == 1){
+            const todo = item.parentElement
+            todo.remove()
+            container.style.border = "none"//
+            container.style.borderRadius = "none"
+        }else if(item.classList[0] == "del"){
+                    const todo = item.parentElement
+                    todo.remove()
+                    console.log(listItem.indexOf(listItem[num]))
+                }
+                console.log(listItem)
+                console.log(listItem.length)
+            }
+    createDelButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none h-9 w-9 bg-red-300 p-2" title="Delete" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
     <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-    </svg>
-    </button> 
-<button id="done" class="mx-2">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 bg-green-300 p-2" title="Done" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+    </svg>` 
+    createdDiv.appendChild(createDelButton)
+
+
+    let createCompleteButton = document.createElement('button')
+    createCompleteButton.classList.add("mx-2")
+    createCompleteButton.setAttribute("id","del")
+    createCompleteButton.onclick = function(e) {    
+        const item = e.target
+        console.log(item)
+        if(item.classList[0] == "del"){
+            console.log(List)
+            List.classList.add("text-green")
+        }
+                console.log(listItem)
+                console.log(listItem.length)
+            }
+
+    createCompleteButton.innerHTML = ` <svg xmlns="http://www.w3.org/2000/svg" class="pointer-events-none h-9 w-9 bg-green-300 p-2" title="Done" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
     <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-    </svg>
-</button>
-<hr class="w-full h-[.2rem] bg-[#000] rounded">`
-    //if user add his new item to existing item list then it should at 1st place
-    if(containerFirstChild == null){//if container has not child in it 
-        container.appendChild(divList)//add the created div tag to it
-    }else{//has already a child in it
-        container.insertBefore(divList,containerFirstChild)//insert created div before the existing child
+    </svg>`
+    createdDiv.appendChild(createCompleteButton)
+
+    let horizontalLine = document.createElement('hr')
+    horizontalLine.classList.add("w-full", "h-[.2rem]", "bg-[#000]", "rounded")
+    createdDiv.appendChild(horizontalLine)
+
+    if(containerFirstChild == null){
+        container.appendChild(createdDiv)
+    }else{
+        container.insertBefore(createdDiv,containerFirstChild) 
     }
-} 
-// function remove(e){
-//     const item = e.target
-//     // console.log(event.currentTarget)
-//     // console.log(item)
-//     if(item.classList == "del"){
-//         const todo = item.parentElement
-//         todo.remove()
-//     }
-// }
+    num++
+}
