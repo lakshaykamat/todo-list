@@ -6,20 +6,20 @@
 }
 
 body {
+    /* background-color: #fff; */
     background-color: #8EC5FC;
     background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
     /* height: 100vh; */
 }
 
 input {
-    outline: 2px solid white;
     box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 22px 0px rgba(0, 0, 0, 0.75);
 }
 
 input:focus {
-    outline: 4px solid white;
+    outline: 1px solid rgb(0, 0, 0);
     box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 40px 0px rgba(0, 0, 0, 0.75);
