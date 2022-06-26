@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  <!-- -------------------------------------------Header------------------------------------ -->
   <header class="text-gray-600 body-font">
     <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
       <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
@@ -25,7 +26,8 @@
       </nav>
     </div>
   </header>
-    <h1 class="text-center text-5xl sm:text-6xl m-5">Todo List</h1>
+  <!-- -------------------------------------------Header------------------------------------ -->
+  <h1 class="text-center text-5xl sm:text-6xl m-5">Todo List</h1>
     <div class="container flex flex-col justify-center items-center m-auto w-full">
         <input type="text" id="input-el"
             class="bg-gray-300 mx-1 my-[2rem] w-[60%] py-3 px-5 sm:px-9 text-center text-lg sm:text-xl"
@@ -33,10 +35,10 @@
         <span id="error-msg" class="text-red-600 h-5"></span>
         <button id="btn" class="active:bg-white active:text-black m-5 px-[20%] py-3 bg-black text-white text-lg">Add to list</button>
     </div>
-    <div id="Yourtasks">
-    </div>
-        <ul id="container" class="list-decimal m-5 max-w-xl  sm:m-auto p-5 my-7">
-        </ul>
+    <div id="Yourtasks"></div>
+    <ul id="container" class="list-decimal m-5 max-w-xl  sm:m-auto p-5 my-7">
+    </ul>
+    <!-- ----------------------------------Information----------------------------- -->
         <div class="benfits-of-to-do my-8 flex justify-center items-center flex-col w-fit">
           <hr class="w-[90%] sm:w-[75%] h-1 bg-black my-5 mx-auto block">
             <h1 class="text-center text-4xl bolder my-7 mx-5">The Benefits of Using Daily To-Do Lists to Attain Your Goals</h1>
@@ -51,8 +53,10 @@
                 <p class="w-[90%] sm:w-[50%] m-5 tracking-wider">Creating and maintaining a daily to-do list can help improve your overall memory by reinforcing your short-term memory. By writing tasks and short-term goals and continually checking the list, you might retain more information. Making a list every day can improve memory and may assist you in making sure all your important tasks get completed on time.</p>
                 <h1 class="text-center text-3xl bolder my-7 mx-5">Reduce Stress</h1>
                 <p class="w-[90%] sm:w-[50%] m-5  tracking-wider">Planning the activities you want to complete each day can help declutter your life and remove a sense of being overwhelmed by everything that needs to be done. Make sure that you do not plan too much in one day. Be realistic about how much you can accomplish.</p>
-        </div>
-        <footer class="text-gray-600 body-font">
+              </div>
+              <!-- ----------------------------------Information---------------------------- -->
+              <!--------------------------------- Footer------------------------------------ -->
+              <footer class="text-gray-600 body-font">
             <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
               <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
                 <svg xmlns="http://www.w3.org/2000/svg" class=" rounded-full h-12 w-12 p-3 bg-black" fill="white" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -89,6 +93,7 @@
               </span>
             </div>
           </footer>
+          <!-------------------------------------- Footer----------------------------------- -->
         <script src="app.js"></script>
     <link rel="stylesheet" href="style.css">
 </body>
